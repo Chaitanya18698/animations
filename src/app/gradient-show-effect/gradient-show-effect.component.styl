@@ -1,0 +1,32 @@
+.shadow
+    position relative
+    height 200px
+    width 400px
+    background linear-gradient(0deg, #0f6dd0 , #26dd26)
+    &:before , &:after
+        content ''
+        position absolute
+        width calc(100% + 4px)
+        height calc(100% + 4px)
+        background linear-gradient(45deg , #fb0094 , #0000ff , #00ff00 , #ffff00 , #ff0000 ,#fb0094 , #0000ff , #00ff00 , #ffff00 , #ff0000,#fb0094 , #0000ff , #00ff00 , #ffff00 , #ff0000,#fb0094 , #0000ff , #00ff00 , #ffff00 , #ff0000  )
+        background-size 500%
+        top -2px
+        left -2px
+        z-index -1
+        animation animate2 14s linear infinite
+.shadow:after
+    filter blur(10px)
+
+@keyframes animate2 
+    0%
+    
+        background-position 0 0
+    
+    50%
+    
+        background-position 300% 0
+    
+    100%
+    
+        background-position 0 0
+    
