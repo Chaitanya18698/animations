@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ThreeDRotateComponent } from './three-d-rotate/three-d-rotate.component';
 import { GradientShowEffectComponent } from './gradient-show-effect/gradient-show-effect.component';
 import { PulseEffectComponent } from './pulse-effect/pulse-effect.component';
+import { LeavesAnimationComponent } from './leaves-animation/leaves-animation.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { PulseEffectComponent } from './pulse-effect/pulse-effect.component';
     ThreeDRotateComponent,
     GradientShowEffectComponent,
     PulseEffectComponent,
+    LeavesAnimationComponent,
   ],
   imports: [
     BrowserModule,
