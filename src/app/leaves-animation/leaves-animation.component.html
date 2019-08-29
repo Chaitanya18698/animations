@@ -1,31 +1,34 @@
+<div class="wrapper">
 <main class="main mt-5">
     <div class="chat-box-container">
       <h1 class="chat-box-header">Chat AI</h1>
       <p></p>
-      <div class="chat-box" data-spy="scroll" data-target=".chat-box" data-offset="50">
-        <div class="ai">
-            <p>BOT: HI</p>
-            <p *ngFor="let i of bot">BOT: {{i}}</p>
+      <div class="chat-box">
+        <div class="chat-wrap">
+        <div class="ai" *ngFor="let i of bot">
+            <p >BOT: {{i}}</p>
+          </div>
+          <div class="user" *ngFor="let i of user" >
+            <p >USER: {{i}}</p>
         </div>
-        <div class="user" >
-            <p *ngFor="let i of user">USER: {{i}}</p>
-            <!-- <p class="my-3"  ></p> -->
-        </div>
+      </div>
       </div>
     </div>
     <div class="chat-input-container">
       <!-- <input class="chat-input" type="text" name="chat-input" #box> -->
       <div class="column">
-        <form action="" class="form">
-        	<input class="effect-11" type="text" [value]="searchValue" name="chat-input" placeholder="Type here.." #box>
+        <form onsubmit="return false;" class="form">
+        	<input class="effect-11" (keyup.enter)="onClickMe(box.value);box.value=''" type="text" name="chat-input" placeholder="Ask me something.." #box>
             <span class="focus-bg"></span>
-            <button class="chat-submit" type="button"  name="submit" (click)="onClickMe(box.value)"> <i class="fas fa-paper-plane"></i> </button> 
+            <button class="chat-submit" type="button"  name="submit" (click)="onClickMe(box.value);box.value=''"> <i class="fas fa-paper-plane"></i> </button> 
             </form> 
         </div>
     </div>
   </main>
-      <div class="circle" (click)="showChatBox()">
+      <div class="circle" data-toggle="tooltip" data-placement="top" title="Chat with a Bot">
         <div class="bot">
         <i class="fas fa-robot"></i>
+        </div>
+      
       </div>
-      </div>
+    </div>

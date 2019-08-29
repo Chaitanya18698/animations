@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { log } from 'util';
 declare var $: any;
 
 @Component({
@@ -11,27 +10,34 @@ export class LeavesAnimationComponent implements OnInit {
   constructor() { }
   clickMessage = '';
   user: any = [];
-  bot:any = [];
+  bot: any = [];
   searchValue = '';
 
   ngOnInit() {
-    // tslint:disable-next-line: only-arrow-functions
-    $(document).ready(function() {
-      // tslint:disable-next-line: only-arrow-functions
-      $('.chat-submit').click(function() {
-        $('.chat-box').scrollTop(1000);
-      });
-      // tslint:disable-next-line: only-arrow-functions
-      $('.circle').click(function() {
+    $(document).ready(() => {
+      $('.circle').click(() => {
         $('.main').toggleClass('active');
+      });
+      $('[data-toggle="tooltip"]').tooltip();
+      $('effect-11').bind('keypress', () => {
+        $('.chat-box').animate({ scrollTop: $('.chat-box')[0].scrollHeight}, 1000);
+      });
+      $('.chat-submit').click(() => {
+        $('.chat-box').scrollTop(10000);
+      });
+      $('.effect-11').keyup(() => {
+        $('.chat-box').scrollTop(10000);
       });
     });
   }
+
+
   onClickMe(event: any) {
     this.user.push(event);
-    this.searchValue = '';
     if (event === 'hello') {
-      this.bot.push('How can I help you');
-  }
+      this.bot.push('How can I help you?');
+  } else if (event === 'what is your name?') {
+    this.bot.push('Hello my name is CHITTI');
+}
   }
 }
